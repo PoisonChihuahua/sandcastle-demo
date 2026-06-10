@@ -6,7 +6,15 @@ import { docker } from "@ai-hero/sandcastle/sandboxes/docker";
 const result = await run({
   name: "worker",
   agent: claudeCode("claude-sonnet-4-6"),
-  sandbox: docker(),
+  // env: エージェントのコミットを人間のコミットと作者レベルで区別する
+  sandbox: docker({
+    env: {
+      GIT_AUTHOR_NAME: "RALPH (Sandcastle Agent)",
+      GIT_AUTHOR_EMAIL: "ralph-agent@users.noreply.github.com",
+      GIT_COMMITTER_NAME: "RALPH (Sandcastle Agent)",
+      GIT_COMMITTER_EMAIL: "ralph-agent@users.noreply.github.com",
+    },
+  }),
   promptFile: ".sandcastle/prompt.md",
 
   // 1イテレーション = 1 issue。issue 3件なので 4 に設定（最後の1回で COMPLETE を確認）
