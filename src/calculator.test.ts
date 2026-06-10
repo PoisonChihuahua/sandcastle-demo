@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { add, divide } from "./calculator";
+import { add, divide, power } from "./calculator";
 
 describe("add", () => {
   test("returns sum of two positive numbers", () => {
@@ -30,5 +30,27 @@ describe("divide", () => {
 
   test("throws on division by zero", () => {
     expect(() => divide(5, 0)).toThrow("Division by zero");
+  });
+});
+
+describe("power", () => {
+  test("raises base to positive exponent", () => {
+    expect(power(2, 3)).toBe(8);
+  });
+
+  test("exponent 0 returns 1", () => {
+    expect(power(5, 0)).toBe(1);
+  });
+
+  test("exponent 1 returns base", () => {
+    expect(power(7, 1)).toBe(7);
+  });
+
+  test("negative exponent returns reciprocal", () => {
+    expect(power(2, -2)).toBe(0.25);
+  });
+
+  test("handles base 0", () => {
+    expect(power(0, 3)).toBe(0);
   });
 });
