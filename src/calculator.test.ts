@@ -29,7 +29,7 @@ describe("divide", () => {
   });
 
   test("ゼロ除算で例外をスローする", () => {
-    expect(() => divide(5, 0)).toThrow("Division by zero");
+    expect(() => divide(5, 0)).toThrow("ゼロ除算はできません");
   });
 });
 
@@ -55,7 +55,7 @@ describe("average", () => {
   });
 
   test("空配列の場合に例外をスローする", () => {
-    expect(() => average([])).toThrow("Cannot average an empty array");
+    expect(() => average([])).toThrow("空の配列の平均は計算できません");
   });
 });
 
