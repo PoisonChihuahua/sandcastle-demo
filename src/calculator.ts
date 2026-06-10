@@ -2,5 +2,7 @@ export function add(a: number, b: number): number {
   return a + b;
 }
 
-// TODO: subtract(a, b) を実装する
-// TODO: multiply(a, b) を実装する
+export function divide(a: number, b: number): number {
+  if (b === 0) throw new Error("Division by zero");
+  return a / b;
+}
