@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { add, divide, power } from "./calculator";
+import { add, divide, power, average } from "./calculator";
 
 describe("add", () => {
   test("2つの正の数の合計を返す", () => {
@@ -30,6 +30,32 @@ describe("divide", () => {
 
   test("ゼロ除算で例外をスローする", () => {
     expect(() => divide(5, 0)).toThrow("Division by zero");
+  });
+});
+
+describe("average", () => {
+  test("正の数の配列の平均を返す", () => {
+    expect(average([1, 2, 3, 4, 5])).toBe(3);
+  });
+
+  test("単一要素の配列の平均を返す", () => {
+    expect(average([7])).toBe(7);
+  });
+
+  test("負の数を含む配列を処理する", () => {
+    expect(average([-3, -1, 0, 1, 3])).toBe(0);
+  });
+
+  test("小数を含む配列を処理する", () => {
+    expect(average([0.1, 0.2, 0.3])).toBeCloseTo(0.2);
+  });
+
+  test("負数と小数が混在する配列を処理する", () => {
+    expect(average([-1.5, 0.5, 2.0])).toBeCloseTo(0.333);
+  });
+
+  test("空配列の場合に例外をスローする", () => {
+    expect(() => average([])).toThrow("Cannot average an empty array");
   });
 });
 
