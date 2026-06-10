@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "vitest run",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "sandcastle": "docker image inspect sandcastle:sandcastle-demo >/dev/null 2>&1 || docker tag \"$(docker images sandcastle:sandcastle-demo -q | head -1)\" sandcastle:sandcastle-demo; tsx .sandcastle/main.ts"
   },
   "devDependencies": {
     "@ai-hero/sandcastle": "^0.7.0",
