@@ -37,7 +37,7 @@ Pick the highest-priority open issue that is not blocked by another open issue.
    - Include the issue number completed (e.g. `closes #1`)
    - List key decisions made (in Japanese)
    - List files changed
-6. **Close** — close the issue with `gh issue close <ID> --comment "..."`. Write the comment in Japanese, explaining what was done.
+6. **Close** — close the issue with `gh issue close <ID> --comment "..."`. Write the comment in Japanese, explaining what was done. Start every issue comment with the line `🤖 **RALPH (Sandcastle Agent)**` followed by a blank line, so agent comments are visually distinguishable from human comments.
 
 ## Rules
 
