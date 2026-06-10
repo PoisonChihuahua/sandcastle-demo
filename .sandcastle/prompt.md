@@ -32,14 +32,16 @@ Pick the highest-priority open issue that is not blocked by another open issue.
 3. **Execute** — use RGR (Red → Green → Repeat → Refactor): write a failing test first, then write the implementation to pass it.
 4. **Verify** — run `npm run typecheck` and `npm test` before committing. Fix any failures before proceeding.
 5. **Commit** — make a single git commit. The message MUST:
-   - Start with `RALPH:` prefix
+   - Be written in Japanese (subject and body), EXCEPT the `RALPH:` prefix, the conventional commit type (feat/fix/docs/test/...), and the `closes #N` keyword which must stay in English so GitHub auto-close works
+   - Start with `RALPH:` prefix (e.g. `RALPH: feat: divide 関数を実装 (closes #1)`)
    - Include the issue number completed (e.g. `closes #1`)
-   - List key decisions made
+   - List key decisions made (in Japanese)
    - List files changed
-6. **Close** — close the issue with `gh issue close <ID> --comment "Completed by Sandcastle"` explaining what was done.
+6. **Close** — close the issue with `gh issue close <ID> --comment "..."`. Write the comment in Japanese, explaining what was done.
 
 ## Rules
 
+- All natural-language output you produce — commit message bodies, issue comments, README/docs content, code comments — MUST be in Japanese. Identifiers (variable/function names) stay in English.
 - Work on **one issue per iteration**. Do not attempt multiple issues in a single iteration.
 - Do not close an issue until you have committed the fix and verified tests pass.
 - Do not leave commented-out code or TODO comments in committed code.
